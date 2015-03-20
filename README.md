@@ -1,33 +1,25 @@
-//
-//  AppDelegate.m
-//  CustomScheme
-//
-//  Created by isee15 on 15/3/19.
-//  Copyright (c) 2015年 isee15. All rights reserved.
-//
+# Mac OSX custom url scheme
+```
+//Info.plist
+<key>CFBundleURLTypes</key>
+        <array>
+            <dict>
+                <key>CFBundleURLName</key>
+                <string>cn.z.isee</string>
+                <key>CFBundleURLSchemes</key>
+                <array>
+                    <string>isee</string>
+                </array>
+            </dict>
+        </array>
 
-#import "AppDelegate.h"
+```
 
-@interface AppDelegate ()
-
-@property(weak) IBOutlet NSWindow *window;
-@end
-
-@implementation AppDelegate
-
-
+```
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification
 {
     // Register ourselves as a URL handler for this URL
     [[NSAppleEventManager sharedAppleEventManager] setEventHandler:self andSelector:@selector(handleURLEvent:withReplyEvent:) forEventClass:kInternetEventClass andEventID:kAEGetURL];
-}
-
-
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
-    // Insert code here to initialize your application
-
-
 }
 
 - (void)handleURLEvent:(NSAppleEventDescriptor *)theEvent withReplyEvent:(NSAppleEventDescriptor *)replyEvent
@@ -39,9 +31,7 @@
     [alert runModal];
 }
 
-- (void)applicationWillTerminate:(NSNotification *)aNotification
-{
-    // Insert code here to tear down your application
-}
-
-@end
+```
+<br>
+<img src="QQ20150320-1@2x.png"></img>
+<img src="QQ20150320-2@2x.png"></img>
